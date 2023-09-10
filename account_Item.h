@@ -34,4 +34,7 @@ void expand(vector<AccountItem>& allItems); //重载, 在 operations.cpp 内具�
 void insertIntoFile(const AccountItem& allItems); //重载, 在 operations.cpp 内具体实现
 
 // 6. 查询过滤账单
-void queryAccount(const vector<AccountItem>& allItems); // 🚀🚀 （查询不改变引用内容, 所以只是引用！！）注意, 需要定义为【引用类型的参数】 => 使用指针或者引用！
+void queryAccountAction(const vector<AccountItem>& allItems); // 🚀🚀 （查询不改变引用内容, 所以只是引用！！）注意, 需要定义为【引用类型的参数】 => 使用指针或者引用！
+void queryItems(const vector<AccountItem>& allItems);
+void queryItems(const vector<AccountItem>& allItems, const string type);
+void printItem(const AccountItem& item);

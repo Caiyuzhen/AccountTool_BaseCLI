@@ -51,7 +51,7 @@ int main() {
 				break;
 			case '2':
 				showQueryMenu(); //【显示查询菜单】 => 具体的功能函数
-				// queryAccount(allItemsRef); // 进行查询
+				queryAccountAction(allItemsRef); // 进行查询
 				break;
 			case '3': // 【显示退出程序菜单】
 				cout << "\n 确认退出记账本？(Y/N): ";
