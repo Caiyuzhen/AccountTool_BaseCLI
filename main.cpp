@@ -32,7 +32,8 @@ int main() {
 	//第 1 步: 加载文件中的账目数据
 	vector<AccountItem> allItems;
 	vector<AccountItem>& allItemsRef = allItems; // 定义引用类型的参数！
-	loadDataFromFile(allItemsRef); //🔥 在 account_Item.h 内进行定义, 因为定义的是引用类型的参数, 所以这里也要传入引用的参数
+
+	loadDataFromFile(allItemsRef); //🔥【每次登录程序都需要加载文件数据】 在 account_Item.h 内进行声明, 在 operations.cpp 内进行实现 , 因为定义的是引用类型的参数, 所以这里也要传入引用的参数
 
 	// 是否退出程序的主循环标志位
 	bool quit = false;
@@ -45,12 +46,12 @@ int main() {
 
 		switch(key) {
 			case '1': //1 为记账功能
-				showAccountMenu(); //显示记账菜单
+				showAccountMenu(); //显示记账菜单 => 具体的功能函数
 				accounting(allItemsRef); // 进行记账, 追加账单数据 (修改)
 				break;
 			case '2':
-				showQueryMenu(); //显示查询菜单
-				query(allItemsRef); // 进行查询
+				showQueryMenu(); //显示查询菜单 => 具体的功能函数
+				queryAccount(allItemsRef); // 进行查询
 				break;
 			case '3':
 				cout << "\n 确认退出记账本？(Y/N): ";
@@ -61,5 +62,7 @@ int main() {
 			default: //如果输入的不是 1、2、3, 则留在主菜单
 				break;
 		}
+
+		cout << endl; //每次输出的菜单换个行
 	}
 }
