@@ -3,11 +3,12 @@
 
 	具体功能函数 => 对 Model 层的操作
  */
-#pragma once;
+#pragma once
 #include "common.h" //🔥在 common.h 中统一引入了所有的头文件, 所以这里不需要再次引入
 
 
-// 1. 🔥定义数据的结构体
+
+// 1. 🔥定义数据的结构体 ————————————————————————————————————————————————————————————————————————————————————————————————————————————
 struct AccountItem {
 	string itemType; // 每条数据的类型
 	int amount; // 金额总数
@@ -15,12 +16,22 @@ struct AccountItem {
 };
 
 
+
 // 👇 Model 层的操作 ————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // 2.加载账单
 void loadDataFromFile(vector<AccountItem>& allItems); // 🚀🚀 注意, 需要定义为【引用类型的参数】 => 使用指针或者引用！
 
-// 3. 增加账单
-void accounting(vector<AccountItem>& allItems); // 🚀🚀 注意, 需要定义为【引用类型的参数】 => 使用指针或者引用！
+// 3. 编辑账单
+void editAccountAction(vector<AccountItem>& allItems); // 🚀🚀 注意, 需要定义为【引用类型的参数】 => 使用指针或者引用！
 
-// 4. 查询过滤账单
+// 4. 记录支出
+void addInCome(vector<AccountItem>& allItems); //重载, 在 operations.cpp 内具体实现
+
+// 4. 记录收入
+void expand(vector<AccountItem>& allItems); //重载, 在 operations.cpp 内具体实现
+
+// 5. 写入文件
+void insertIntoFile(const AccountItem& allItems); //重载, 在 operations.cpp 内具体实现
+
+// 6. 查询过滤账单
 void queryAccount(const vector<AccountItem>& allItems); // 🚀🚀 （查询不改变引用内容, 所以只是引用！！）注意, 需要定义为【引用类型的参数】 => 使用指针或者引用！

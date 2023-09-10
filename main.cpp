@@ -42,20 +42,20 @@ int main() {
 		showMainMenu();
 
 		//第 3 步: 读取键盘输入的信息, 并做合法性的校验
-		char key = readMenuSelected();
+		char keyboardInfo = readMenuSelected(3); // 3 是因为主菜单有 3 个选项
 
-		switch(key) {
+		switch(keyboardInfo) {
 			case '1': //1 为记账功能
-				showAccountMenu(); //显示记账菜单 => 具体的功能函数
-				accounting(allItemsRef); // 进行记账, 追加账单数据 (修改)
+				showAccountMenu(); //【显示记账菜单】 => 具体的功能函数
+				editAccountAction(allItemsRef); // 进行记账, 追加账单数据 (修改)
 				break;
 			case '2':
-				showQueryMenu(); //显示查询菜单 => 具体的功能函数
-				queryAccount(allItemsRef); // 进行查询
+				showQueryMenu(); //【显示查询菜单】 => 具体的功能函数
+				// queryAccount(allItemsRef); // 进行查询
 				break;
-			case '3':
+			case '3': // 【显示退出程序菜单】
 				cout << "\n 确认退出记账本？(Y/N): ";
-				if(readQuitConfirm() == 'Y') { //用户输入 Y 后, 则确认退出
+				if(readQuitConfirm() == 'Y') { //在【read_input.cpp】内实现 => 用户输入 Y 后, 则确认退出
 					quit = true;
 				};
 				break;
